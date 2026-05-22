@@ -22,8 +22,9 @@ export default function CategoryIndex() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET CATEGORIES
       const response = await fetch(
-        "http://localhost:3000/categories"
+        `${import.meta.env.VITE_API_URL}/categories`
       );
 
       const data = await response.json();
@@ -50,8 +51,9 @@ export default function CategoryIndex() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK DELETE CATEGORY
       const response = await fetch(
-        `http://localhost:3000/categories/${id}`,
+        `${import.meta.env.VITE_API_URL}/categories/${id}`,
         {
           method: "DELETE",
         }

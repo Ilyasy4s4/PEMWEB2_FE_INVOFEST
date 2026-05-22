@@ -60,8 +60,9 @@ export default function SpeakerEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET SPEAKER DETAIL
       const response = await fetch(
-        `http://localhost:3000/speakers/${id}`
+        `${import.meta.env.VITE_API_URL}/speakers/${id}`
       );
 
       const data = await response.json();
@@ -84,8 +85,9 @@ export default function SpeakerEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK UPDATE SPEAKER (PUT)
       const response = await fetch(
-        `http://localhost:3000/speakers/${id}`,
+        `${import.meta.env.VITE_API_URL}/speakers/${id}`,
         {
           method: "PUT",
 

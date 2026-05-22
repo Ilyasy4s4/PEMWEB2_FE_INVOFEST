@@ -54,8 +54,9 @@ export default function CategoryEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET CATEGORY DETAIL
       const response = await fetch(
-        `http://localhost:3000/categories/${id}`
+        `${import.meta.env.VITE_API_URL}/categories/${id}`
       );
 
       const data = await response.json();
@@ -76,8 +77,9 @@ export default function CategoryEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK UPDATE CATEGORY (PUT)
       const response = await fetch(
-        `http://localhost:3000/categories/${id}`,
+        `${import.meta.env.VITE_API_URL}/categories/${id}`,
         {
           method: "PUT",
 

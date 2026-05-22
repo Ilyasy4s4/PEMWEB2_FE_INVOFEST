@@ -19,7 +19,6 @@ const schema = z.object({
   name: z.string().min(1, "Nama harus diisi"),
 
   role: z.string().min(1, "Role harus diisi"),
-
 });
 
 export default function SpeakerCreate() {
@@ -41,8 +40,9 @@ export default function SpeakerCreate() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK POST SPEAKER BARU
       const response = await fetch(
-        "http://localhost:3000/speakers",
+        `${import.meta.env.VITE_API_URL}/speakers`,
         {
           method: "POST",
 

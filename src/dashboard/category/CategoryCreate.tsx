@@ -39,8 +39,9 @@ export default function CategoryCreate() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK POST CATEGORY BARU
       const response = await fetch(
-        "http://localhost:3000/categories",
+        `${import.meta.env.VITE_API_URL}/categories`,
         {
           method: "POST",
 

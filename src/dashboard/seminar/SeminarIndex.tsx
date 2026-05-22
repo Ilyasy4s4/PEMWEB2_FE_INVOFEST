@@ -23,8 +23,9 @@ export default function SeminarIndex() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET SPEAKERS
       const response = await fetch(
-        "http://localhost:3000/speakers"
+        `${import.meta.env.VITE_API_URL}/speakers`
       );
 
       const data = await response.json();
@@ -51,8 +52,9 @@ export default function SeminarIndex() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK DELETE SPEAKER
       const response = await fetch(
-        `http://localhost:3000/speakers/${id}`,
+        `${import.meta.env.VITE_API_URL}/speakers/${id}`,
         {
           method: "DELETE",
         }
