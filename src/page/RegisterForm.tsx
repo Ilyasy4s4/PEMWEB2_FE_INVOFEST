@@ -9,9 +9,6 @@ import InputText from "../components/ui/InputText";
 import InputPassword from "../components/ui/InputPassword";
 import Textarea from "../components/ui/TextArea";
 
-// =======================
-// VALIDATION SCHEMA
-// =======================
 const schema = z
   .object({
     nama: z.string().min(1, "Nama harus diisi"),
@@ -53,9 +50,6 @@ export default function RegisterForm() {
     resolver: zodResolver(schema),
   });
 
-  // =======================
-  // SUBMIT HANDLER
-  // =======================
   const onSubmit = (data: FormData) => {
     setLoading(true);
 

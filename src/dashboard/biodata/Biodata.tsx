@@ -11,7 +11,7 @@ export default function Biodata() {
 
             {/* FOTO */}
             <img
-              src="/img/foto.jpeg"
+              src="/public/foto.jpeg"
               alt="Profile"
               className="w-36 h-36 rounded-full border-4 border-white object-cover shadow-xl"
             />
