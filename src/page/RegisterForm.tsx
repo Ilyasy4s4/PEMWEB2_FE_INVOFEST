@@ -10,7 +10,9 @@ import InputPassword from "../components/ui/InputPassword";
 import InputSelectEvent from "../components/ui/Select";
 import Textarea from "../components/ui/TextArea";
 
-// Schema validasi
+// =======================
+// VALIDATION SCHEMA
+// =======================
 const schema = z
   .object({
     nama: z.string().min(1, "Nama harus diisi"),
@@ -53,10 +55,12 @@ export default function RegisterForm() {
     resolver: zodResolver(schema),
   });
 
+  // =======================
+  // SUBMIT HANDLER
+  // =======================
   const onSubmit = (data: FormData) => {
     setLoading(true);
 
-    // Data user yang disimpan
     const userToSave = {
       nama: data.nama,
       nim: data.nim,
@@ -67,7 +71,6 @@ export default function RegisterForm() {
 
     console.log("Menyimpan user:", userToSave);
 
-    // Simpan ke localStorage
     localStorage.setItem(
       "registeredUser",
       JSON.stringify(userToSave)
@@ -82,11 +85,10 @@ export default function RegisterForm() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#F3F4F6] px-4 py-10">
-      
-      {/* Card Form */}
+      {/* CARD */}
       <div className="w-full max-w-lg bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-gray-100">
         
-        {/* Header */}
+        {/* HEADER */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-[#7B1D3F] mb-1">
             Daftar Akun
@@ -97,11 +99,9 @@ export default function RegisterForm() {
           </p>
         </div>
 
-        {/* Form */}
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="space-y-4"
-        >
+        {/* FORM */}
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+
           <InputText
             label="Nama Lengkap"
             nama="nama"
@@ -116,7 +116,7 @@ export default function RegisterForm() {
             error={errors.nim?.message}
           />
 
-          {/* Password */}
+          {/* PASSWORD */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <InputPassword
               label="Password"
@@ -133,7 +133,7 @@ export default function RegisterForm() {
             />
           </div>
 
-          {/* Event */}
+          {/* EVENT SELECT */}
           <InputSelectEvent
             label="Pilih Event"
             nama="event"
@@ -141,13 +141,13 @@ export default function RegisterForm() {
             setValue={setValue}
             error={errors.event?.message}
             options={[
-              { value: "Seminar" },
-              { value: "Workshop" },
-              { value: "Lomba" },
+              { label: "Seminar", value: "Seminar" },
+              { label: "Workshop", value: "Workshop" },
+              { label: "Lomba", value: "Lomba" },
             ]}
           />
 
-          {/* Bio */}
+          {/* BIO */}
           <Textarea
             label="Bio Singkat"
             nama="bio"
@@ -155,25 +155,21 @@ export default function RegisterForm() {
             error={errors.bio?.message}
           />
 
-          {/* Button */}
+          {/* BUTTON */}
           <div className="pt-4">
             <button
               type="submit"
               disabled={loading}
               className={`w-full bg-[#7B1D3F] hover:bg-[#5a152e] text-white py-4 rounded-2xl font-bold transition-all shadow-md ${
-                loading
-                  ? "opacity-50 pointer-events-none"
-                  : ""
+                loading ? "opacity-50 pointer-events-none" : ""
               }`}
             >
-              {loading
-                ? "Memproses..."
-                : "Daftar Sekarang"}
+              {loading ? "Memproses..." : "Daftar Sekarang"}
             </button>
           </div>
         </form>
 
-        {/* Login Link */}
+        {/* LOGIN LINK */}
         <p className="text-center text-sm mt-8 text-gray-500">
           Sudah punya akun?{" "}
           <Link
