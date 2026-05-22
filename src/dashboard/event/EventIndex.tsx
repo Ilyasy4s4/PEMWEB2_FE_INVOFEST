@@ -58,8 +58,8 @@ export default function EventIndex() {
     try {
 
       const response = await fetch(`https://pemweb-2backendinvofest-production.up.railway.app/events/${id}`, {
-  method: "DELETE",
-});
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         throw new Error("Gagal menghapus event");
