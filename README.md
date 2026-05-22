@@ -1,12 +1,12 @@
-# Invofest Management System 🚀
+# Invofest Management System 
 > Tugas Mata Kuliah Pemrograman Web 2 - Aplikasi Manajemen Event Festival, Kategori, dan Pembicara.
 
-Aplikasi web full-stack yang dirancang untuk mengelola data kegiatan festival (**Invofest**), meliputi manajemen data **Event** (Seminar, Workshop, Competition, Talkshow), data **Kategori**, serta data **Pembicara (Speaker)**. Aplikasi ini telah terintegrasi secara penuh dengan database cloud dan siap digunakan dalam lingkungan produksi.
+Aplikasi web full-stack yang dirancang untuk mengelola data kegiatan festival (**Invofest**), meliputi manajemen data **Event** (Seminar, Workshop, Competition, Talkshow), data **Kategori**, serta data **Pembicara (Speaker)**. 
 
 ---
 
 ## 🔗 Link Demo Live
-* **Frontend (Vercel):** [https://pemweb-2-fe-invofest-yrsr.vercel.app/](https://vercel.com)
+* **Frontend (Vercel):** [https://pemweb-2-fe-invofest-yrsr.vercel.app/](pemweb-2-fe-invofest-yrsr.vercel.app/)
 * **Backend API (Railway):** [https://pemweb-2backendinvofest-production.up.railway.app](https://pemweb-2backendinvofest-production.up.railway.app)
 
 ---
