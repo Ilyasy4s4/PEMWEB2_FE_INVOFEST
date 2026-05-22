@@ -11,6 +11,7 @@ import InputSelectEvent from "../../components/ui/Select";
 import InputDate from "../../components/ui/InputDate";
 import Textarea from "../../components/ui/TextArea";
 import Button from "../../components/ui/Button";
+
 // TYPE DATA CATEGORY
 interface Category {
   id: number;
@@ -68,8 +69,9 @@ export default function EventCreate() {
   // FETCH CATEGORY
   const fetchCategories = async () => {
     try {
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET CATEGORIES
       const response = await fetch(
-        "http://localhost:3000/categories"
+        `${import.meta.env.VITE_API_URL}/categories`
       );
 
       const data = await response.json();
@@ -84,8 +86,9 @@ export default function EventCreate() {
   // FETCH SPEAKER
   const fetchSpeakers = async () => {
     try {
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET SPEAKERS
       const response = await fetch(
-        "http://localhost:3000/speakers"
+        `${import.meta.env.VITE_API_URL}/speakers`
       );
 
       const data = await response.json();
@@ -97,39 +100,37 @@ export default function EventCreate() {
     }
   };
 
-// SUBMIT EVENT
-const onSubmit = async (data: FormData) => {
+  // SUBMIT EVENT
+  const onSubmit = async (data: FormData) => {
+    try {
+      // MENGGUNAKAN ENV VARIABLE UNTUK POST NEW EVENT
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/events`,
+        {
+          method: "POST",
 
-  try {
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-    const response = await fetch(
-      "http://localhost:3000/events",
-      {
-        method: "POST",
+          body: JSON.stringify(data),
+        }
+      );
 
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(data),
+      if (!response.ok) {
+        throw new Error("Gagal menambahkan event");
       }
-    );
 
-    if (!response.ok) {
-      throw new Error("Gagal menambahkan event");
+      alert("Event berhasil ditambahkan!");
+
+      navigate("/dashboard/event");
+
+    } catch (error) {
+      console.log(error);
+      alert("Gagal menambahkan event");
     }
+  };
 
-    alert("Event berhasil ditambahkan!");
-
-    navigate("/dashboard/event");
-
-  } catch (error) {
-
-    console.log(error);
-
-    alert("Gagal menambahkan event");
-  }
-};
   return (
     <div className="p-8 bg-[#F3F4F6] min-h-full flex justify-center">
       <div className="w-full max-w-3xl bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100">

@@ -89,8 +89,9 @@ export default function EventEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET CATEGORIES
       const response = await fetch(
-        "http://localhost:3000/categories"
+        `${import.meta.env.VITE_API_URL}/categories`
       );
 
       const data = await response.json();
@@ -109,8 +110,9 @@ export default function EventEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET SPEAKERS
       const response = await fetch(
-        "http://localhost:3000/speakers"
+        `${import.meta.env.VITE_API_URL}/speakers`
       );
 
       const data = await response.json();
@@ -129,8 +131,9 @@ export default function EventEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET EVENT DETAIL BY ID
       const response = await fetch(
-        `http://localhost:3000/events/${id}`
+        `${import.meta.env.VITE_API_URL}/events/${id}`
       );
 
       const data = await response.json();
@@ -167,8 +170,9 @@ export default function EventEdit() {
 
     try {
 
+      // MENGGUNAKAN ENV VARIABLE UNTUK PUT/UPDATE EVENT
       const response = await fetch(
-        `http://localhost:3000/events/${id}`,
+        `${import.meta.env.VITE_API_URL}/events/${id}`,
         {
           method: "PUT",
 

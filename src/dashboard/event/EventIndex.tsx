@@ -33,7 +33,8 @@ export default function EventIndex() {
   const fetchEvents = async () => {
     try {
 
-      const response = await fetch("https://pemweb-2backendinvofest-production.up.railway.app/events");
+      // MENGGUNAKAN ENV VARIABLE UNTUK GET DATA
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/events`);
 
       const data = await response.json();
 
@@ -57,7 +58,8 @@ export default function EventIndex() {
 
     try {
 
-      const response = await fetch(`https://pemweb-2backendinvofest-production.up.railway.app/events/${id}`, {
+      // MENGGUNAKAN ENV VARIABLE UNTUK DELETE DATA
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/events/${id}`, {
         method: "DELETE",
       });
 
